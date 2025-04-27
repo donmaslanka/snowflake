@@ -1,6 +1,7 @@
 variable "name" {
   description = "Prefix for naming resources"
   type        = string
+  default = "tuai_"
 }
 
 variable "region" {

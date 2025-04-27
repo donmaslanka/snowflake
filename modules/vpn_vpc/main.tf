@@ -16,12 +16,12 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_subnet" "public" {
-  for_each                  = toset(var.public_subnet_cidrs)
-  vpc_id                    = aws_vpc.this.id
-  cidr_block                = each.key
-  map_public_ip_on_launch   = true
-  availability_zone         = "${var.region}a"
-  tags                      = var.tags
+  for_each                = toset(var.public_subnet_cidrs)
+  vpc_id                  = aws_vpc.this.id
+  cidr_block              = each.key
+  map_public_ip_on_launch = true
+  availability_zone       = "${var.region}a"
+  tags                    = var.tags
 }
 
 resource "aws_subnet" "private" {
